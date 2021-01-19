@@ -19,9 +19,11 @@ def my_function(request):
     """
     # Remove the pass when you add your code
     pass
+    # Access to the msg stored in request
+    # input_values = request.input
     # The core of your code should be called or written here
     # ...
-    # Make sure to uncomment this out and change srvName byt he name of your srv
+    # Make sure to uncomment this out and change srvName by the name of your srv
     # response = srvNameResponse()
 
     # Fill in the service response.
@@ -39,7 +41,7 @@ def my_function(request):
 if __name__ == '__main__':
     # Initialise the node with a specific name (please change it to match your service)
     rospy.init_node('template_python_service_server')
-    # Set the name of the service, specify which kind of srv will trigger it and what function will be run and received
+    # Set the name of the service, specify which kind of srv will trigger it and what function will be run.
     # Please uncomment this out, change the name of the server with one that matches the content of your code,
     # set the second argument to the name of the srv file, and the last one should be the function that runs your code.
     # service = rospy.Service("template_service", srvName, my_function)
