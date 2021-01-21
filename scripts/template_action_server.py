@@ -2,9 +2,9 @@
 
 import rospy
 import actionlib
-# Please uncomment this out and change server_template by the name of your ROS package
+# Change server_template by the name of your ROS package
 # and actionName by the name of your action file (without the .action)
-# from server_template.msg import actionNameAction, actionNameResult, actionNameFeedback
+from server_template.msg import actionNameAction, actionNameResult, actionNameFeedback
 
 # You can add here any other import statement you might need for your code
 
@@ -22,8 +22,8 @@ class MyActionServer(object):
         """
             Initialize the action server
         """
-        # Uncomment this out and change actionName by the name of your action file
-        # self.action_server = actionlib.SimpleActionServer(action_server_name, actionNameAction, auto_start=False)
+        # Change actionName by the name of your action file
+        self.action_server = actionlib.SimpleActionServer(action_server_name, actionNameAction, auto_start=False)
         # Set the callback to be executed when a goal is received
         self.action_server.register_goal_callback(self.goal_callback)
         # Set the callback that should be executed when a preempt request is received
@@ -35,24 +35,24 @@ class MyActionServer(object):
         """
             Callback executed when a goal is received. Your code should be called or written inside this method
         """
-        # The first step is to accept a new goal. If you want to access to the input field, you should write
-        # new_goal.input
+        # The first step is to accept a new goal.
         new_goal = self.action_server.accept_new_goal()
-
+        # If you want to access to the input field, you should write
+        input_values = new_goal.input
         # The core of your code should be called or written here
         # ...
 
         # You can fill and send a feedback message with the following block. Don't forget to change field_name and value
-        # action_feedback = actionNameFeedback()
-        # action_feedback.field_name = value
+        action_feedback = actionNameFeedback()
+        action_feedback.field_name = value
         # Publish the feedback
-        # self.action_server.publish_feedback(action_feedback)
+        self.action_server.publish_feedback(action_feedback)
 
         # Return the response of the action. Don't forget to change the values
-        # self.action_result = actionNameResult()
-        # self.action_result.outcome = value
-        # self.action_result.returned_object = object
-        # self.action_server.set_succeeded(self.action_result)
+        self.action_result = actionNameResult()
+        self.action_result.outcome = value
+        self.action_result.returned_object = object
+        self.action_server.set_succeeded(self.action_result)
 
     def preempt_callback(self):
         """

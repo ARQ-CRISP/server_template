@@ -26,9 +26,10 @@ void MyActionServer::goal_callback()
                   "Please preempt the latter or wait before sending a new goal");
         return;
     }
-    // The first step is to accept a new goal. If you want to access to the input field, you should write
-    // new_goal->input;
+    // The first step is to accept a new goal.
     new_goal_ = action_server_.acceptNewGoal();
+    // If you want to access to the input field (assuming it's a vector of floats), you should write
+    std:vector<float> input_values = new_goal_->input;
     // Set busy to true
     busy_ = true;
 
