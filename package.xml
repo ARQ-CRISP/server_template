@@ -4,9 +4,9 @@
   <version>0.0.1</version>
   <description>Template package to be used to easily wrap you code inside a ROS action/service server</description>
 
-  <maintainer email="software@shadowrobot.com">Shadow Software Team</maintainer>
+  <maintainer email="b.d.denoun@qmul.ac.uk">Brice Denoun</maintainer>
   <license>GPLv2</license>
-  <author email="brice@shadowrobot.com">Brice Denoun</author>
+  <author email="b.d.denoun@qmul.ac.uk">Brice Denoun</author>
 
 
   <build_depend>sensor_msgs</build_depend>
